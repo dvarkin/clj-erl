@@ -6,4 +6,4 @@ all: install
 
 install:
 	lein localrepo coords $(JAR_PATH)	
-	lein localrepo install -p pom.xml $(JAR_PATH) $(APP) $(VER) 
+	lein localrepo install -p pom.xml $(JAR_PATH) $(APP) $(VER)
