@@ -76,5 +76,4 @@
 
   
   OtpErlangPid
-  (encode [this] this)
-  )
+  (encode [this] this))

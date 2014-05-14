@@ -31,5 +31,4 @@
           (= v (encode (encode v))))))
   (testing "list test fail"
     (is (let [l '(1 2 "s" :a)]
-          (= l (encode (encode l))))))
-  )
+          (= l (encode (encode l)))))))

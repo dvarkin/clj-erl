@@ -3,7 +3,8 @@
   (:import  [com.ericsson.otp.erlang
              OtpNode
              OtpMbox
-             OtpErlangObject]))
+             OtpErlangObject])
+  (:gen-class))
 
 (defprotocol NodeProto
   (create  [this] "create Erlang node")
