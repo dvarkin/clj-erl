@@ -11,7 +11,7 @@
   (ping    [this remote-name timeout] "ping remote Erlang node")
   (names   [this] "get nodes names")
   (mbox    [this proc-name] "create and register named mbox")
-  (send!   [this remote-pid message] [this remote-mbox remote-node message] "send message to Erlang node")
+  (send!   [this remote-pid message] [this remote-mbox remote-node message] "send message to Erlang node or pid")
   (recv    [this] [this timeout] "blocking receive message from Erlang node"))
 
 (defrecord Node [name node mbox]
@@ -20,7 +20,7 @@
   (ping    [this remote-node-name timeout] (.ping node remote-node-name timeout))
   (names   [this] (.getNames node))
   (mbox    [this proc-name] (->Node name node (.createMbox node proc-name)))
-  (send!   [this remote-pid message] (->> (encode message)  (.send mbox remote-pid message)))
+  (send!   [this remote-pid message] (->> (encode message)  (.send mbox remote-pid)))
   (send!   [this remote-mbox remote-node message] (->> (encode message) (.send mbox remote-mbox remote-node)))
   (recv    [this] (-> (.receive mbox) encode))
   (recv    [this timeout] (-> (.receive mbox timeout) encode)))
