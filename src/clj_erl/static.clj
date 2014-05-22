@@ -24,6 +24,8 @@
   (encode [this] "convert static types between Clojure and Erlang"))
 
 (extend-protocol ErlangProto
+  nil
+  (encode [this] (OtpErlangAtom. "null"))
   Boolean
   (encode [this] (OtpErlangBoolean. this))
   OtpErlangBoolean
@@ -73,7 +75,6 @@
   PersistentVector
   (encode [this]
     (OtpErlangTuple. (into-array OtpErlangObject (map encode this))))
-
   
   OtpErlangPid
   (encode [this] this))
