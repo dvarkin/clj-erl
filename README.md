@@ -1,6 +1,6 @@
 # clj-erl
 
-A Clojure library designed to work with Erlagn VM throw Jinterface. 
+A Clojure library designed to work with Erlagn VM through Jinterface. 
 
 ## Usage
 
